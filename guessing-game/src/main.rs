@@ -30,7 +30,7 @@ fn main() {
             },
         };
 
-        println!("You guessed: {guess}");
+        println!("You guessed: {}", guess);
 
         match guess.cmp(&random_number) {
             Ordering::Less => {
