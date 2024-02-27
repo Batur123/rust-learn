@@ -88,7 +88,8 @@ fn show_user() {
     println!("User-3: {:?}", user3);
 
     // Value Borrowed Here
-    let users = vec![user, user2, user3];
+    let mut users = vec![user, user3];
+    users.push(user2);
     println!("users: {:?}", users);
     println!("first user test: {:?}", users[0]);
 
