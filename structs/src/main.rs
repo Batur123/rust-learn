@@ -55,6 +55,16 @@ struct User {
     password: String,
 }
 
+fn build_user(id: u128, name: String, meta: Option<String>, email: String, password: String) -> User {
+    User {
+        id,
+        name,
+        meta,
+        email,
+        password
+    }
+}
+
 fn show_user() {
     let user = User {
         id: 5,
@@ -71,8 +81,16 @@ fn show_user() {
         email: String::from("batuhan2@test.com"),
         password: String::from("5BQoxoayOsBfsgw")
     };
+
+    let user3 = build_user(7, String::from("Test"), Some(String::from("Meta")), String::from("testemail@gmail.com"), String::from("Password"));
     println!("User: {:?}", user);
     println!("User-2: {:?}", user2);
+    println!("User-3: {:?}", user3);
+
+    // Value Borrowed Here
+    let users = vec![user, user2, user3];
+    println!("users: {:?}", users);
+    println!("first user test: {:?}", users[0]);
 
 }
 ///////////////////////////////////
